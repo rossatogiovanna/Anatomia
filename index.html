@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anatomia Web - HTML 5</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Antomia de uma pagina HTML5</h1>
+      <nav>
+        <a href="#estrutura">Estrutura</a>
+        <a href="#midia">Mídia</a>
+        <a href="#dados">Dados</a>
+        <a href="#texto">Texto</a>
+        <a href="#interatividade">Interatividade</a>
+      </nav>
+    </header>
+    <main class="container">
+      <div class="card">
+        <h2>Uma pagina que explica a si mesmo</h2>
+        <p>
+          Bem-vindos! essa página foi construída como um exemplo prático do uso
+          de tags semãnticas do HTML5. Cada seção que voce vê abaixo não apenas
+          utiliza as tags, mas também explica o porquê de seu uso. Inspecione o
+          código para ver a mágica acontecer!
+        </p>
+      </div>
+      <section id="estrutura">
+        <h3>Estrutura Semântica</h3>
+        <div class="card tag-highlight">
+          <p>
+            Pense nas tags de estrutura como as caixas transparentes de um
+            mímico. Elas existem, definem espaços e organizam a cena, mas são
+            invisíveis para o público. Elas não mudam o visual sozinhas, mas
+            informam ao navegador o papel de cada bloco, melhorando a
+            acessibilidade e o SEO.
+          </p>
+          <p>
+            Tags como
+            <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>,
+            <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>,
+            <code>&lt;aside&gt;</code>,
+            <code>&lt;footer&gt;</code>
+            formam o esqueleto da página
+          </p>
+          <div class="diagram-layout">
+            <header class="diagram-header">
+              <code>&lt;header&gt;</code> (Cabeçalho)
+            </header>
+            <div class="diagram-content">
+              <article>
+                <h4><code>&lt;article&gt;</code></h4>
+                <p>
+                  Este é o conteúdo principal e autônomo. Poderia ser lido
+                  separadamente e ainda faria sentido. Por exemplo, a matéria de
+                  um jornal.
+                </p>
+              </article>
+              <aside>
+                <h4><code>&lt;aside&gt;</code></h4>
+                <p>
+                  Isto é um conteúdo lateral. Relacionado ao
+                  <code>&lt;article&gt;</code>, mas não faz parte do fluxo
+                  principal. Pense em uma caixa de "leia também".
+                </p>
+              </aside>
+            </div>
+            <footer class="diagram-footer">
+              <code>&lt;footer&gt;</code> (Rodapé)
+            </footer>
+          </div>
+        </div>
+      </section>
+
+      <section id="midia">
+        <h3>Agrupando Mídias e Legendas</h3>
+        <div class="card grid-container">
+          <figure>
+            <picture>
+              <source
+                media="(min-width: 768px )"
+                srcset="
+                  https://placehold.co/600x400/3b82f6/ffffff?text=Imagem+para+Desktop
+                "
+              />
+              <img
+                src="https://placehold.co/400x500/000000/ffffff?text=Imagem+para+Mobile
+                "
+                alt="exemplo de imagem responsiva"
+              />
+            </picture>
+            <figcaption>
+              Esta imagem usa <code>&lt;picture&gt;</code>. Redimensione a
+              janela para ver a imagem mudar.
+            </figcaption>
+          </figure>
+          <div class="tag-highlight">
+            <p>
+              A tag <code>&lt;figure&gt;</code> é usada para encapsular a imagem
+              e sua legenda. Dentro dela, a tag <code>&lt;picture&gt;</code>,
+              com suas tags <code>&lt;source&gt;</code>, otimiza a experiência
+              visual, carregando a imagem ideal para cada dispositivo. A legenda
+              é definida pela tag <code>&lt;figcaption&gt;</code>.
+            </p>
+          </div>
+        </div>
+        <div class="grid-container card">
+          <div class="tag-highlight">
+            <p>
+              Para mídias como áudio e vídeo, o HTML5 oferece as tags
+              <code>&lt;audio&gt;</code> e <code>&lt;video&gt;</code>, que criam
+              players nativos no navegador. A tag
+              <code>&lt;track&gt;</code> pode ser usada dentro delas para
+              adicionar legendas, tornando o conteúdo acessível.
+            </p>
+          </div>
+          <div>
+            <p class="font-semibold">Exemplo de <code>&lt;audio&gt;</code>:</p>
+            <audio controls>
+              <source src="#" type="audio/ogg" />
+              <source src="#" type="audio/mpeg" />
+              Seu navegador nao suporta o elemento de áudio
+            </audio>
+            <p class="font-semibold">
+              Exemplo de <code>&lt;video&gt;</code> com legendas:
+            </p>
+            <video controls muted poster="https://picsum.photos/600/300/?blur">
+              <source src="" type="video/mp4" />
+              <track
+                label="Português"
+                kind="subtitles"
+                srclang="pt"
+                src="#"
+                default
+              />
+              Seu navegador não suporta o elmento vídeo.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section id="dados">
+        <h3>Apresentado Dados e Medidas</h3>
+        <div class="tag-highlight card">
+          <p>
+            HTML5 oferece tags para representar dados de forma visual e
+            semântica. O <code>&lt;meter&gt;</code>, por exemplo, é perfeito
+            para exibir uma medida dentro de uma escala conhecida.
+          </p>
+          <div>
+            <div>
+              <strong>Índice de Semântica (Esta Página):</strong>
+              <div>
+                <meter
+                  value="9"
+                  min="0"
+                  max="10"
+                  low="3"
+                  high="7"
+                  title="Nota 9 de 10"
+                >
+                  Excelente
+                </meter>
+                <div>
+                  <span>Pobre</span>
+                  <span>Bom</span>
+                  <span>Ótimo</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong
+                >Índice de Semântica (Layout com
+                <code>&lt;div&gt;</code>s):</strong
+              >
+              <div>
+                <meter
+                  value="2"
+                  min="0"
+                  max="10"
+                  low="3"
+                  high="7"
+                  optimum="10"
+                  title="Nota 2 de 10"
+                >
+                  Ruim
+                </meter>
+                <div>
+                  <span>Pobre</span>
+                  <span>Bom</span>
+                  <span>Ótimo</span>
+                </div>
+              </div>
+            </div>
+            <p>
+              Além disso, a tag <code>&lt;data&gt;</code> pode associar um valor
+              legível por máquina a um texto. Exemplo: ID da Versão:
+              <data value="2.0.1">v.2.0.1-beta</data>.
+            </p>
+          </div>
+        </div>
+        <div class="tag-highlight card">
+          <p>
+            Enquanto <code>&lt;meter&gt;</code> mede um valor estático, a tag
+            <code>&lt;progress&gt;</code> é usada para acompanhar o progresso de
+            uma tarefa em andamento, como um download ou o preenchimento de um
+            formulário.
+          </p>
+          <div>
+            <strong>Processo de Downlond:</strong>
+            <progress max="100" value="70">70%</progress>
+          </div>
+          <p>
+            Diferença principal: <code>&lt;meter&gt;</code> é um medidor (como o
+            de gasolina), <code>&lt;progress&gt;</code> é uma barra de progresso
+            (como a de uma instalação).
+          </p>
+        </div>
+      </section>
+
+      <section id="texto">
+        <h3>Semântica de Texto e Citações</h3>
+        <div class="tag-highlight">
+          <p>
+            Para dar significado especial a trechos de texto, usamos tags
+            semânticas. As tags de citação são um ótimo exemplo, pois informam
+            ao navegador que um texto foi retirado de outra fonte.
+          </p>
+          <h4>Citação em bloco com <code>&lt;blockquote&gt;</code>:</h4>
+          <blockquote>
+            <p>
+              "A tag blockquote é destinada para citações mais longas que ocupam
+              seu próprio parágrafo. Ela cria um recuo visual para destacar o
+              texto."
+            </p>
+          </blockquote>
+          <h4>Citação em linha com <code>&lt;q&gt;</code>:</h4>
+          <p>
+            Quando a citação é curta e faz parte de um parágrafo, usamos a tag
+            <q>que, por padrão, adiciona aspas ao redor do texto</q>.
+          </p>
+        </div>
+      </section>
+      <section id="interatividade">
+        <h3>Interatividade com o Usuário</h3>
+        <div class="text-center card">
+          <h4>A tag <code>&lt;dialog&gt;</code></h4>
+          <p>
+            Esta tag cria uma janela de diálogo (modal) nativa, sem a
+            necessidade de bibliotecas externas. Clique no botão abaixo para ver
+            um exemplo.
+          </p>
+          <button id="open-video-btn">Ver a tag em Ação!</button>
+        </div>
+        <div class="card">
+          <h4 class="text-center">
+            Interatividade Nativa com <code>&lt;details&gt;</code> e
+            <code>&lt;summary&gt;</code>
+          </h4>
+          <p class="text-center">
+            Essas tags criam um componente "acordeão" (sanfona) sem precisar de
+            uma linha de JavaScript. É perfeito para seções de FAQ ou para
+            esconder conteúdo secundário.
+          </p>
+          <div>
+            <details>
+              <summary>O que é a tag &lt;details&gt;?</summary>
+              <p>
+                É o contêiner que agrupa o conteúdo que pode ser escondido ou
+                revelado.
+              </p>
+            </details>
+            <details>
+              <summary>E a tag &lt;summary&gt;?</summary>
+              <p>
+                É o título clicável que sempre fica visível, controlando a
+                exibição do resto do conteúdo dentro de
+                <code>&lt;details&gt;</code>.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <dialog id="video-dialog">
+      <div>
+        <h3>Isto é uma <code>&lt;dialog&gt;</code>!</h3>
+        <p>
+          Este popup foi criado usando apenas a tag
+          <code>&lt;dialog&gt;</code> e um pouco de JavaScript para os eventos
+          de abrir/fechar. Ela é ótima para alertas, confirmações ou para exibir
+          conteúdo em destaque. O fundo escurecido é estilizado nativamente com
+          <code>::backdrop</code> no CSS.
+        </p>
+        <button id="close-video-btn">&times;</button>
+      </div>
+    </dialog>
+    <footer>
+      <p>Página construída como um projeto de estudo sobre HTML5 Semântico.</p>
+      <p>&copy; 2025. Todos os direitos reservados.</p>
+    </footer>
+
+<script>
+        const openBtn = document.getElementById("open-video-btn");
+        const closeBtn = document.getElementById("close-video-btn");
+        const videoDialog = document.getElementById("video-dialog");
+
+        openBtn.addEventListener("click", () => {
+            videoDialog.showModal();
+        });
+        closeBtn.addEventListener("click",() => {
+            videoDialog.close();
+        });
+        videoDialog.addEventListener("click", (event) => {
+            if (event.target === videoDialog) {
+                videoDialog.close();
+            }
+        });
+</script>
+  </body>
+</html>
